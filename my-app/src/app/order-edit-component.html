@@ -1,0 +1,72 @@
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    {{pageTitle}}
+  </div>
+
+  <div class="panel-body">
+
+
+    <div class="form-horizontal"
+          novalidate>
+
+      <fieldset>
+               
+
+        <div class="form-group">
+          <label class="col-md-2 control-label"
+                 for="productNameId">Order ShipCity</label>
+
+          <div class="col-md-8">
+            <input class="form-control" type="text" [(ngModel)]="order.shipCity" placeholder="Ship City" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="productCodeId">Order Ship Country</label>
+
+          <div class="col-md-8">
+            <input class="form-control" id="productCodeId" [(ngModel)]="order.shipCountry" placeholder="Ship Country" />
+
+          </div>
+        </div>
+
+
+        <div>{{errorMessage}}</div>
+      </fieldset>
+
+    </div>
+  </div>
+
+
+
+  <div class="panel-footer">
+    <div class="row" style="text-align:center;">
+      <div class="col-md-6 col-md-offset-2">
+        <span *ngIf="order.orderID!=0">
+          <button class="btn btn-primary"
+                  type="button"
+                  style="width:80px;margin-right:10px"
+                  (click)="saveOrder()">
+            Update
+          </button>
+        </span>
+        <span *ngIf="order.orderID==0">
+          <button class="btn btn-primary"
+                  type="button"
+                  style="width:80px;margin-right:10px"
+                  (click)="addOrder()">
+            Save
+          </button>
+        </span>
+        <span>
+          <a class="btn btn-default" (click)="goBack()">
+            Cancel
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+    
+</div>

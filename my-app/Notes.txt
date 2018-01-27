@@ -1,0 +1,11 @@
+https://angular.io/guide/quickstart
+   --Verify that you are running at least node 6.9.x and npm 3.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
+   -- Angular CLI 1.6.6
+	npm install -g @angular/cli
+	ng new my-app
+	cd my-app
+	ng serve --open
+
+
+Install BootStrap: https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/ng-cli.md
+	npm install ngx-bootstrap bootstrap --save

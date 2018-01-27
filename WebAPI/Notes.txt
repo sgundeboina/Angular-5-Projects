@@ -1,0 +1,13 @@
+0) Use .NET 4.6.1 Web API
+
+1) Update WebApiConfig.cs
+
+2) Update  public partial class UserDBEntities : DbContext with :
+ public UserDBEntities()
+            : base("name=UserDBEntities")
+        {
+            this.Configuration.LazyLoadingEnabled = false;
+            //Configuration.ProxyCreationEnabled = false;//this is line to be added
+        }
+		
+3) Add mdf file  in C:\nw\northwind.mdf
