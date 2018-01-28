@@ -12,12 +12,17 @@ using WebAPI.DBContext;
 
 namespace WebAPI.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class CustomersController : ApiController
     {
         protected readonly UserDBEntities _db = new UserDBEntities();
 
 
-        [EnableCors("*", "*", "*")]
+        public IEnumerable<Customer> Get()
+        {
+            return _db.Customers.AsEnumerable().Skip(0).Take(10);
+        }
+
         public HttpResponseMessage Get(string custId)
         {
             var customerOrders = _db.Customers.Include(n => n.Orders).FirstOrDefault(c => c.CustomerID == custId);

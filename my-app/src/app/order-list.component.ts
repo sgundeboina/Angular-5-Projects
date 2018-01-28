@@ -17,15 +17,23 @@ export class OrdertListComponent implements OnInit {
 
   custId: string;
   customer: any;
+  customers: any;
 
   constructor(private orderService: OrderService, private route: ActivatedRoute, private router: Router) {
-    this.custId = "ALFKI";
+    this.getCustomers();
   }
 
 
   ngOnInit(): void {
-    this.getCustomer();
+    this.getCustomers();
+    var v = 0;
 
+  }
+
+  getCustomers(): void {
+    this.orderService.getCustomers()
+      .subscribe(custs => this.customers = custs,
+      error => this.errorMessage = <any>error);
   }
 
   getCustomer(): void {

@@ -13,13 +13,18 @@ const httpOptions = {
 
 @Injectable()
 export class OrderService {
-  private baseCustUrl = 'http://localhost:52037/api/customers?custId=';
+  private baseCustUrl = 'http://localhost:52037/api/customers';
   private baseOrdersUrl = 'http://localhost:52037/api/orders';
 
   constructor( private http: HttpClient) { }
 
+  getCustomers(): Observable<any[]> {
+    var custUrl = this.baseCustUrl;
+    return this.http.get<any[]>(custUrl).pipe();
+  }
+
   getCustomer(custid: any): Observable<any> {
-    var custUrl =this.baseCustUrl + custid;
+    var custUrl = this.baseCustUrl +"?custId=" + custid;
     return this.http.get<any[]>(custUrl).pipe();
   }
 

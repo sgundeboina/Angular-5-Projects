@@ -1,13 +1,20 @@
-<div class="row" style="text-align:right; margin:5px;">
+<div class="row" style="margin:5px;">
   <label for="productNameId">Customer Name</label>
-  <input style="width:150px;" type="text" [(ngModel)]="custId" />
+
+  <select [(ngModel)]="custId">
+    <option *ngFor="let cst of customers" value={{cst.customerID}}>{{cst.contactName}}</option>
+  </select>
+
   <a class="btn btn-success" (click)="getCustomer()">
     Get Customer Orders
   </a>
-  <a class="btn btn-success" [routerLink]="['/orderAdd', custId]">
+
+  <a class="btn btn-success glyphicon  glyphicon-plus-sign" [routerLink]="['/orderAdd', custId]">
     Add Order
   </a>
+
 </div>
+
 
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -49,13 +56,13 @@
             <td>{{order.shippedDate|date: 'dd/MM/yyyy'}}</td>
 
             <td>
-              <a class="btn btn-primary"
+              <a class="btn btn-primary glyphicon glyphicon-edit"
                  [routerLink]="['/orderEdit', order.orderID]">
                 Edit
               </a>
             </td>
             <td>
-              <a class="btn btn-primary" (click)="deleteOrder(order.orderID)">
+              <a class="btn btn-primary glyphicon  glyphicon-trash" (click)="deleteOrder(order.orderID)">
                 Delete
               </a>
             </td>
