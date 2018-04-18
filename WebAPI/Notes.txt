@@ -12,7 +12,10 @@
 		
 3) Add mdf file  in C:\nw\northwind.mdf
 
+4) Test Notes - Dev
+
 4) Adding for SQA
 
 5) Test Notes
+
 
